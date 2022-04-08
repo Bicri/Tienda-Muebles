@@ -15,6 +15,10 @@ body{
     line-height: 2; /*Interlineado*/
 }
 
+.estatico{
+    position: fixed;
+}
+
 /*Globales*/
 h1, h2, h3{
     font-family: 'Playfair Display', serif;
@@ -69,6 +73,8 @@ img{
 .max-width-30{
     max-width: 30rem;
 }
+
+
 
 /* Header y navegacion */
 .nombre-sitio{

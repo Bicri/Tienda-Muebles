@@ -3,6 +3,7 @@
 html{
     box-sizing: border-box; /* Para que el padding no modifique el width */
     font-size: 62.5%; /*1 rem equivale a 10px*/
+    scroll-behavior: smooth;
 }
 
 *, *:before, *:after{
@@ -13,10 +14,6 @@ body{
     font-family: 'Raleway', sans-serif;
     font-size: 1.6rem;
     line-height: 2; /*Interlineado*/
-}
-
-.estatico{
-    position: fixed;
 }
 
 /*Globales*/
@@ -57,7 +54,7 @@ a{
 
 .contenedor{
     max-width: 120rem;
-    margin: 0 auto 0 auto; /*de una determinada anchura, auto lo centra y lo que sobre a las orillas*/
+    margin: 0 auto; /*de una determinada anchura, auto lo centra y lo que sobre a las orillas*/
 }
 
 img{
@@ -74,7 +71,13 @@ img{
     max-width: 30rem;
 }
 
-
+.estatico{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background-color: white;
+}
 
 /* Header y navegacion */
 .nombre-sitio{
@@ -87,6 +90,12 @@ img{
 
 .contenedor-navegacion{
     border-top: 0.1rem solid #e1e1e1;
+}
+
+.contenedor-navegacion-sticky{
+    position: sticky;
+    top: 0;
+    background-color: white;
 }
 
 .nav-principal{
@@ -102,8 +111,12 @@ img{
     background-size: cover; /*extender toda la imagen al control*/
     background-position: center center;
     height: 55rem;
-
 }
+
+.separar-nav{
+    margin-top: 27rem;
+}
+
 .categorias{
     padding-top: 5rem;
 }

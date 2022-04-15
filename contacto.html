@@ -103,21 +103,29 @@
 
 
                 <div class="d-grid d-md-flex">
-                    <input class="btn btn-success fs-2 px-5 mt-5 " type="submit" value="Enviar Formulario">
+                    <input class="btn btn-success fs-2 px-5 mt-5 " type="submit" value="Enviar Formulario" id="btnEnviar">
                 </div>
-                <div class="w-100"
-                    style="
-                        background-color: lightskyblue;
-                        color: darkblue;
-                        border-radius: 8px;
-                        padding: 5px;
-                        width: 50%;
-                        text-align: center;
-                        margin-top: 8px;
-                    "
-                    >
-                    <p id="alerta">Alerta para la respuesta</p>
+                
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index:10;">
+                    <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header fs-5">
+                            <strong class="me-auto">Estado</strong>
+                            <small>Hace unos segundos</small>
+                            <button type="button" data-bs-dismiss="toast" aria-label="Cerrar notificación" class="btn-close"></button>
+                        </div>
+                        <div class="toast-body fs-5 d-flex flex-md-row justify-content-end" id="bodyToast">
+
+                            <span class="b-block">Enviando...</span>
+                            <div class="d-flex justify-content-center"> <!-- end o start en justify -->
+                                <div class="spinner-border text-primary col-6" role="status">
+                                    <span class="visually-hidden">Cargando...</span> 
+                                </div> <!--Agrgar roles cuando no queda claro que hace un elemnto-->
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+
             </form>
         </div>
      </main>

@@ -1,3 +1,4 @@
+
 const enviarCorreo = async (formulario) => {
     /* let peticion = {"nombre":"Angel","destino":"correo@gmail.com","asunto":"asunto",
       "numero":"51","mensaje":"Cuerpo del mensaje"}; */ 
@@ -18,22 +19,35 @@ const enviarCorreo = async (formulario) => {
   };
  
   const formulario = document.querySelector("#formularioEmail");
-  const alerta = document.querySelector("#alerta");
+  //const alerta = document.querySelector("#alerta");
   //console.log(formulario[0].value)
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
-    let formularioDatos = new FormData(formulario);
-    //console.log(formularioDatos.get("destino"))
-    enviarCorreo(formularioDatos)
-      .then((response) => {      
-        console.log(response);          
-        alerta.textContent = response;          
-        if (response!="Correo enviado con éxito")
-        throw { status: response.status, statusText: response.statusText }  
-      })
-      .catch((err) => {
-          alerta.textContent = err.status + " " + err.statusText + " No se envió el mensaje";
-          alerta.style.backgroundColor="red";
-          alerta.style.color="black";
-      });
+
+    if(document.querySelector('#nombre').value.length>0 && document.querySelector('#asunto').value.length>0 && document.querySelector('#email').value.length>0 && document.querySelector('#telefono').value.length>0 && document.querySelector('#mensaje').value.length>0)
+    {
+
+      let formularioDatos = new FormData(formulario);
+      //console.log(formularioDatos.get("destino"))
+      const toastEl = document.querySelector("#toast");
+      const toast = new bootstrap.Toast(toastEl);
+      toast.show();
+      const body = document.querySelector('#bodyToast');
+      enviarCorreo(formularioDatos)
+        .then((response) => {      
+          console.log(response);       
+          body.textContent = "";
+          body.textContent = response;
+          toast.show();
+          if (response!="Correo enviado con éxito")
+            throw { status: response.status, statusText: response.statusText }
+        })
+        .catch((err) => {
+          body.textContent = "";
+          body.textContent = err.status + " " + err.statusText + " No se envió el mensaje";
+          toast.show();
+        });
+    }
+
   });
+

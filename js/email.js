@@ -36,11 +36,23 @@ const enviarCorreo = async (formulario) => {
       enviarCorreo(formularioDatos)
         .then((response) => {      
           console.log(response);       
-          body.textContent = "";
-          body.textContent = response;
-          toast.show();
+          
           if (response!="Correo enviado con éxito")
+          {
             throw { status: response.status, statusText: response.statusText }
+          }else{
+            body.textContent = "";
+            body.classList.remove('justify-content-end');
+            body.textContent = response;
+            toast.show();
+            formulario.classList.remove('was-validated');
+            document.querySelector('#nombre').value = "";
+            document.querySelector('#asunto').value = "";
+            document.querySelector('#email').value = "";
+            document.querySelector('#telefono').value = "";
+            document.querySelector('#mensaje').value = "";
+          }
+            
         })
         .catch((err) => {
           body.textContent = "";

@@ -18,7 +18,7 @@ include("../Mailer/src/Exception.php");
         $port = "587";                                  //o 465
         $SMTPAuth = "login";
         $_SMTPSecure = "tls";                           //o ssl, pero debe incluir SMTPOptions
-        $contrasena = "";
+        $contrasena = "1999b1cr1";
 
 
         try{
